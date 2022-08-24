@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'
 })
 export class EmployeeService {
-    private apiServerUrl = '';
+    private apiServerUrl = environment.apiBaseUrl;
 
     constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ export class EmployeeService {
     *  
     * @returns 
     */    
-    public addEmployees(employee: Employee): Observable<Employee> {
+    public addEmployee(employee: Employee): Observable<Employee> {
         return this.http.put<Employee>(`${this.apiServerUrl}/employee/add`, employee);
     }
 
@@ -32,7 +32,7 @@ export class EmployeeService {
     *  
     * @returns 
     */    
-     public updateEmployees(employee: Employee): Observable<Employee> {
+     public updateEmployee(employee: Employee): Observable<Employee> {
         return this.http.post<Employee>(`${this.apiServerUrl}/employee/update`, employee);
     }
 
@@ -40,7 +40,7 @@ export class EmployeeService {
     *  
     * @returns 
     */    
-     public deleteEmployees(employeeId: number): Observable<void> {
+     public deleteEmployee(employeeId: number): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
     }
 
