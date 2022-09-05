@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'
 })
 export class EmployeeService {
-    private apiServerUrl = environment.apiBaseUrl;
+    private apiBaseUrl = environment.apiBaseUrl;
 
     constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class EmployeeService {
      * @returns a employee Collection
      */
     public getEmployees(): Observable<Employee[]> {
-        return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
+        return this.http.get<Employee[]>(`${this.apiBaseUrl}/employee/all`);
     }
 
     /**
@@ -25,7 +25,7 @@ export class EmployeeService {
     * @returns 
     */    
     public addEmployee(employee: Employee): Observable<Employee> {
-        return this.http.put<Employee>(`${this.apiServerUrl}/employee/add`, employee);
+        return this.http.put<Employee>(`${this.apiBaseUrl}/employee/add`, employee);
     }
 
     /**
@@ -33,7 +33,7 @@ export class EmployeeService {
     * @returns 
     */    
      public updateEmployee(employee: Employee): Observable<Employee> {
-        return this.http.post<Employee>(`${this.apiServerUrl}/employee/update`, employee);
+        return this.http.post<Employee>(`${this.apiBaseUrl}/employee/update`, employee);
     }
 
     /**
@@ -41,7 +41,7 @@ export class EmployeeService {
     * @returns 
     */    
      public deleteEmployee(employeeId: number): Observable<void> {
-        return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
+        return this.http.delete<void>(`${this.apiBaseUrl}/employee/delete/${employeeId}`);
     }
 
 

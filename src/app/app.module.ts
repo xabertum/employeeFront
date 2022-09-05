@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +12,7 @@ import { EmployeeService } from './employee.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, HttpClientModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
